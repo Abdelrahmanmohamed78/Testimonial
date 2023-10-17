@@ -1,0 +1,399 @@
+/* Start Global Rules */
+:root {
+  --main-bg: #EA5455;
+  --gray-bg: #EEEEEE;
+  --secondary-font: 'Lobster', sans-serif;
+  --third-font: 'Raleway', sans-serif;;
+  --main-transition: 0.5s;
+}
+::selection {
+  background-color: var(--main-bg);
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-bg);
+}
+.mainBtn {
+  position: relative;
+  border: 2px solid transparent;
+  background-color: var(--main-bg);
+  transition: var(--main-transition);
+}
+.mainBtn:hover {
+  border-color: var(--main-bg);
+}
+.mainBtn::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 0;
+  font-size: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.mainBtn:hover::before {
+  font-size: 1.25rem;
+  height: 100%;
+  opacity: 1;
+}
+.scrollBtn {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--main-bg);
+  cursor: pointer;
+  transition: var(--main-transition);
+  animation: scrollBtn 1.5s alternate infinite;
+}
+.scrollBtn.show {
+  visibility: visible;
+  opacity: 1;
+}
+.scrollBtn::before {
+  content: "\f106";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+}
+/* End Global Rules */
+/* Start Header */
+header .navbar {
+  min-height: 78px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+header .navbar .container-fluid .navbar-brand svg {
+  max-width: 200px;
+}
+header .navbar .container-fluid .navbar-nav:first-of-type li a {
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+header .navbar .container-fluid .navbar-nav:first-of-type li a.active,
+header .navbar .container-fluid .navbar-nav:first-of-type li a:hover {
+  color: var(--main-bg);
+}
+header .navbar .container-fluid .navbar-nav:first-of-type li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-bg);
+  transform: translateX(-100%);
+  transition: var(--main-transition);
+}
+@media (min-width: 992px) {
+  header .navbar .container-fluid .navbar-nav:first-of-type li a::after {
+    content: attr(data-link);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+    transition: var(--main-transition);
+  }
+  header .navbar .container-fluid .navbar-nav:first-of-type li a:hover::after {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+}
+header .navbar .container-fluid .navbar-nav:first-of-type li a.active::before,
+header .navbar .container-fluid .navbar-nav:first-of-type li a:hover::before {
+  transform: translateX(0);
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.icon {
+  position: relative;
+  background-color: var(--gray-bg);
+  color: var(--main-bg);
+  overflow: hidden;
+  transition: var(--main-transition);
+  z-index: 1;
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.icon:hover {
+  color: var(--gray-bg);
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--main-bg);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transition: var(--main-transition);
+  z-index: -1;
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.icon:hover::before {
+  width: 70px;
+  height: 70px;
+  border-radius: 0;
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.login {
+  position: relative;
+  border: 1px solid transparent;
+  background-color: var(--gray-bg);
+  transition: var(--main-transition);
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.login:hover {
+  border-color: #000;
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.login::before {
+  content: "Login";
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 0;
+  font-size: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--main-transition);
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.register::before {
+  content: "Register";
+  color: var(--main-bg);
+}
+header .navbar .container-fluid .navbar-nav .nav-item .nav-link.login:hover::before {
+  font-size: 1.25rem;
+  height: 100%;
+}
+/* End Header */
+/* Start Testimonial */
+.testimonial {
+  padding: 45px 0;
+  background-image: url("../images/banner.png");
+  background-size: cover;
+}
+.testimonial .container h2 {
+  color: var(--main-bg);
+  font-family: var(--secondary-font);
+}
+.testimonial .container p {
+  max-width: 450px;
+  font-size: 1.05rem;
+  color: #555;
+}
+.testimonial .container > svg {
+  max-width: 100%;
+}
+/* End Testimonial */
+/* Start Review */
+.review {
+  padding: 80px 0;
+}
+.review .container h2 {
+  font-family: var(--third-font);
+}
+.review .container .box {
+  padding: 50px 40px;
+}
+.review .container .box::before {
+  content: "\f10d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg);
+  font-size: 1.5rem;
+  color: #fff;
+}
+.review .container .box p {
+  color: #4f4c4c;
+  font-size: 1.05rem;
+}
+.review .container > a {
+  width: fit-content;
+  font-size: 1.25rem;
+}
+.review .container > a::before {
+  content: "Load More";
+  color: var(--main-bg);
+}
+/* End Review */
+/* Start Contact */
+.contact {
+  padding: 70px 0 0;
+  background-color: #000;
+}
+.contact .container-fluid .box > p {
+  width: 350px;
+  max-width: 100%;
+  font-size: 17px;
+}
+.contact .container-fluid .box > h4 {
+  color: var(--main-bg);
+  font-size: 20px;
+}
+.contact .container-fluid .box > ul > li {
+  font-size: 17px;
+  cursor: pointer;
+}
+.contact .container-fluid .box .social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact .container-fluid .box .social a {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 5px;
+  transition: 1s;
+}
+.contact .container-fluid .box .social a:hover {
+  background-color: var(--main-bg);
+}
+.contact .container-fluid .box .social a .icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-bg);
+  transition: 1s;
+}
+.contact .container-fluid .box .social a:hover .icon {
+  color: #fff;
+}
+.contact .container-fluid .box .social a p span {
+  display: block;
+  max-width: 0;
+  overflow: hidden;
+  transition: 1s linear;
+}
+.contact .container-fluid .box .social a:hover p span {
+  max-width: 200px;
+}
+.contact .container-fluid .box.links-box ul {
+  list-style: none;
+}
+.contact .container-fluid .box.links-box ul li {
+  position: relative;
+  padding-left: 15px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.contact .container-fluid .box.links-box ul li::before {
+  content: "\f111";
+  position: absolute;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #fff;
+  font-size: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  transition: var(--main-transition);
+}
+.contact .container-fluid .box.links-box ul li:hover,
+.contact .container-fluid .box.links-box ul li:hover::before {
+  color: var(--main-bg);
+}
+.contact .container-fluid .box.links-box ul li:hover {
+  transform: translateX(10px);
+}
+.contact .container-fluid .support ul, 
+.contact .container-fluid .address ul{
+  list-style: none;
+}
+.contact .container-fluid .address ul li {
+  font-family: var(--third-font);
+  font-size: 15px;
+}
+.contact .container-fluid .address ul li svg {
+  color: var(--main-bg);
+}
+.contact .container-fluid .subscribe form {
+  max-width: 400px;
+}
+.contact .container-fluid .subscribe form input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 15px 65px 15px 15px;
+  font-size: 17px;
+  color: #fff;
+  outline: 0;
+  transition: var(--main-transition);
+}
+.contact .container-fluid .subscribe form input:focus {
+  border-color: var(--main-bg);
+}
+.contact .container-fluid .subscribe form input::placeholder {
+  color: #fff;
+  transition: var(--main-transition);
+}
+.contact .container-fluid .subscribe form input:focus::placeholder {
+  opacity: 0;
+}
+.contact .container-fluid .subscribe form::before {
+  content: "\f0e0";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: var(--main-bg);
+  border-left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}
+.contact .container-fluid .importantLink ul,
+.contact .container-fluid .hour .links-holder ul {
+  list-style: none;
+}
+.contact .container-fluid .hour .links-holder {
+  display: flex;
+  gap: 20px;
+}
+.contact .container-fluid footer p {
+  font-size: 0.90rem;
+}
+/* End Contact */
+/* Start Animation */
+@keyframes scrollBtn {
+  to {
+    transform: scale(1.2);
+  }
+}
+/* End Animation */
